@@ -21,7 +21,15 @@ int main() {
     studentStaff->studentArray[3].completedProgram() ? std::cout << "Student has completed the program\n\n" : std::cout << "Student has not completed the program\n\n";
 
     studentStaff->staffArray[0].printStaffInfo();
-    studentStaff->staffArray[0].calculateSalary();
+
+    // By Nirmal: to handle the exception in the calculateSalary function.
+    try {
+        studentStaff->staffArray[0].calculateSalary();
+    } catch (const std::exception &e) {
+        std::cerr << "Error while calculating salary: " << e.what() << std::endl;
+    }
+
+
     studentStaff->staffArray[0].printStaffInfo();
     size_t arraySize, arraySizeStaff;
     std::ifstream studentFile("./data/student.txt");
