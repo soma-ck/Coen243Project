@@ -81,6 +81,10 @@ void Staff::calculateSalary() {
     else if (bonusCode == "D"){
         currentSalary *= 1.01;
     }
+    // by Nirmal: if bonus code is not A, B, C or D, throw an exception
+    else {
+        throw std::invalid_argument("Invalid bonus code during salary calculation.");
+    }
 }
 
 void Staff::printStaffInfo() {
